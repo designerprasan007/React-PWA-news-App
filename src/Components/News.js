@@ -1,25 +1,29 @@
 import {useState, useEffect} from 'react';
 import {Form, Dropdown} from 'react-bootstrap';
+import env from "react-dotenv";
+
 import Card from './Card'
 const News = () =>{
 	const [getLang, setLang] = useState('');
 	const [getTopic, setTopic] = useState('');
 	const [showNews, setShowNews ] = useState([]);
 
+	const token = env.NEWS_TOKEN;
+	console.log(token);
 
 	useEffect(() => {
-		fetch(`https://gnews.io/api/v4/top-headlines?lang=en&country=in&token=yourtoken`)
+		fetch(`https://gnews.io/api/v4/top-headlines?lang=en&country=in&token=${token}`)
 	    .then(function (response) {
 	        return response.json();
 	    })
 	    .then(function (data) {
 	        setShowNews(data.articles);
 	    });
-		
+		// eslint-disable-next-line
 	}, [])
 
 	const getNews = () =>{
-		fetch(`https://gnews.io/api/v4/search?q=${getTopic}&lang=${getLang}&token=yourtoken`)
+		fetch(`https://gnews.io/api/v4/search?q=${getTopic}&lang=${getLang}&token=${token}`)
 	    .then(function (response) {
 	        return response.json();
 	    })
