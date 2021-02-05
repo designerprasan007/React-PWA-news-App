@@ -8,7 +8,7 @@ const News = () =>{
 
 
 	useEffect(() => {
-		fetch(`https://gnews.io/api/v4/top-headlines?lang=en&country=in&token=7fabb165c7e4689851ac801dcd71c57f`)
+		fetch(`https://gnews.io/api/v4/top-headlines?lang=en&country=in&token=yourtoken`)
 	    .then(function (response) {
 	        return response.json();
 	    })
@@ -19,7 +19,7 @@ const News = () =>{
 	}, [])
 
 	const getNews = () =>{
-		fetch(`https://gnews.io/api/v4/search?q=${getTopic}&lang=${getLang}&token=7fabb165c7e4689851ac801dcd71c57f`)
+		fetch(`https://gnews.io/api/v4/search?q=${getTopic}&lang=${getLang}&token=yourtoken`)
 	    .then(function (response) {
 	        return response.json();
 	    })
