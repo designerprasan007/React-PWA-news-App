@@ -9,7 +9,6 @@ const News = () =>{
 	const [showNews, setShowNews ] = useState([]);
 
 	const token = env.NEWS_TOKEN;
-	console.log(token);
 
 	useEffect(() => {
 		fetch(`https://gnews.io/api/v4/top-headlines?lang=en&country=in&token=${token}`)
