@@ -60,6 +60,10 @@ const News = () =>{
 					    <Dropdown.Item onClick={(e) => setTopic(e.target.text)}>sports</Dropdown.Item>
 					    <Dropdown.Item onClick={(e) => setTopic(e.target.text)}>business</Dropdown.Item>
 					    <Dropdown.Item onClick={(e) => setTopic(e.target.text)}>technology</Dropdown.Item>
+					    <Dropdown.Item onClick={(e) => setTopic(e.target.text)}>entertainment</Dropdown.Item>
+					    <Dropdown.Item onClick={(e) => setTopic(e.target.text)}>health</Dropdown.Item>
+					    <Dropdown.Item onClick={(e) => setTopic(e.target.text)}>science</Dropdown.Item>
+					    
 					  </Dropdown.Menu>
 					</Dropdown>
 				</div>
@@ -68,9 +72,10 @@ const News = () =>{
 				</div>
 			</div>
 			<div className="row">
-				{showNews.map((news, index)=>(
-					<Card news={news} key={index} />
-				))}
+
+				{showNews ? (showNews.map((news, index)=>(
+									<Card news={news} key={index} />
+								))) : <h1 className="text-danger">Thank you for visiting, Please come back tomorrow</h1>}
 			</div>	
 		</div>
 		)
